@@ -260,6 +260,8 @@ def main():
     user_input = 999
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
+    # ===Modify codes below=============
+    # 위의 코드를 포함하여 자유로운 수정이 가능함
     while user_input != '0':
         user_input = input('Input guess number : ')
         if user_input == '0':
@@ -270,21 +272,17 @@ def main():
         strikes, ball = get_strikes_or_ball(user_input,random_number)
         print(f'Strikes: {strikes} , Balls : {ball}')
         if strikes == 3:
-            user_input = input('You win, one more(Y/N) ?')
-            if user_input == '0' or is_no(user_input):
-                break
-            elif is_yes(user_input):
-                random_number = str(get_not_duplicated_three_digit_number())
-                print(f"Random Number is : {random_number}")
-            while user_input != '0' or not is_yes(user_input) or not is_no(user_input):
-                print('Wrong Input, Input again')
+            while user_input != '0':
                 user_input = input('You win, one more(Y/N) ?')
-                if user_input == '0' or is_no(user_input):
+                if is_no(user_input):
                     break
+                elif is_yes(user_input):
+                    random_number = str(get_not_duplicated_three_digit_number())
+                    print("Random Number is : ", random_number)
+                    break    
+                print("Wrong Input, Input again")
             if is_no(user_input):
                 break
-    # ===Modify codes below=============
-    # 위의 코드를 포함하여 자유로운 수정이 가능함
 
 
     # ==================================
